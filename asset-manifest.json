@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/timestamps-converter/static/css/main.8a068b9c.css",
+    "main.js": "/timestamps-converter/static/js/main.36025ddc.js",
+    "static/js/453.49e3639a.chunk.js": "/timestamps-converter/static/js/453.49e3639a.chunk.js",
+    "index.html": "/timestamps-converter/index.html",
+    "main.8a068b9c.css.map": "/timestamps-converter/static/css/main.8a068b9c.css.map",
+    "main.36025ddc.js.map": "/timestamps-converter/static/js/main.36025ddc.js.map",
+    "453.49e3639a.chunk.js.map": "/timestamps-converter/static/js/453.49e3639a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8a068b9c.css",
+    "static/js/main.36025ddc.js"
+  ]
+}

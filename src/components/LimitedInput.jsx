@@ -1,6 +1,12 @@
 import { useState } from 'react'
 
-export function LimitedInput({onValueChange, defaultValue, limit, specialKey} ) {
+export function LimitedInput({
+	onEnterKeyDown,
+	onValueChange,
+	defaultValue,
+	limit,
+	specialKey,
+}) {
 	const [newValue, setNewValue] = useState(defaultValue)
 
 	function handleChange(e) {
@@ -9,11 +15,28 @@ export function LimitedInput({onValueChange, defaultValue, limit, specialKey} ) 
 		if (inputValue.length > limit) {
 			inputValue = inputValue.slice(0, limit)
 		}
-
-		console.log(specialKey)
+		
 		setNewValue(inputValue)
 		onValueChange(inputValue, specialKey)
 	}
+	function handleKeyDown(e) {
+		if (['e', '-', '+'].includes(e.key)) {
+			e.preventDefault()
+		}
+		if (e.key === 'Enter') {
+			onEnterKeyDown(e)
+			e.preventDefault()
+		}		
+	}
+	
 
-	return <input type='number' special-key={specialKey} value={newValue} onChange={handleChange} />
+	return (
+		<input
+			type='number'
+			special-key={specialKey}
+			value={newValue}
+			onChange={handleChange}
+			onKeyDown={handleKeyDown}
+		/>
+	)
 }

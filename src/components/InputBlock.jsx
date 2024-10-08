@@ -1,3 +1,4 @@
+import { getDate, getHours, getMinutes, getMonth, getSeconds, getYear } from 'date-fns';
 import { useEffect, useState } from 'react'
 
 import { LimitedInput } from './LimitedInput'
@@ -5,13 +6,15 @@ import { LimitedInput } from './LimitedInput'
 export function InputBlock({ onEnterKeyDown, onDateChange }) {
 	const [date, setDate] = useState({
 		currentDate: new Date(),
-		year: new Date().toLocaleDateString().split('.')[2],
-		month: new Date().toLocaleDateString().split('.')[1],
-		day: new Date().toLocaleDateString().split('.')[0],
-		hour: new Date().toLocaleTimeString().split(':')[0],
-		minute: new Date().toLocaleTimeString().split(':')[1],
-		second: new Date().toLocaleTimeString().split(':')[2],
+		year: getYear(new Date()),
+		month: getMonth(new Date()) + 1,
+		day: getDate(new Date()),
+		hour: getHours(new Date()),
+		minute: getMinutes(new Date()),
+		second: getSeconds(new Date()),
 	})
+
+	console.log(date)
 	function handleValueChange(data, key) {
 			date[key] = data
 			setDate({ ...date })

@@ -7,6 +7,7 @@ function App() {
 	const [inputOneDate, setInputOneDate] = useState()
 	const [inputTwoDate, setInputTwoDate] = useState()
 	const [result, setResult] = useState('')
+	console.log('updated')
 
 	function getResult() {
 		let inputOne =

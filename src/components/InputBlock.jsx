@@ -5,14 +5,13 @@ import { LimitedInput } from './LimitedInput'
 export function InputBlock({ onEnterKeyDown, onDateChange }) {
 	const [date, setDate] = useState({
 		currentDate: new Date(),
-		year: new Date().toLocaleString().split(',')[0].split('.')[2].trim(),
-		month: new Date().toLocaleString().split(',')[0].split('.')[1].trim(),
-		day: new Date().toLocaleString().split(',')[0].split('.')[0].trim(),
-		hour: new Date().toLocaleString().split(',')[1].split(':')[0].trim(),
-		minute: new Date().toLocaleString().split(',')[1].split(':')[1].trim(),
-		second: new Date().toLocaleString().split(',')[1].split(':')[2].trim(),
+		year: new Date().toLocaleDateString().split('.')[2],
+		month: new Date().toLocaleDateString().split('.')[1],
+		day: new Date().toLocaleDateString().split('.')[0],
+		hour: new Date().toLocaleTimeString().split(':')[0],
+		minute: new Date().toLocaleTimeString().split(':')[1],
+		second: new Date().toLocaleTimeString().split(':')[2],
 	})
-
 	function handleValueChange(data, key) {
 			date[key] = data
 			setDate({ ...date })

@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/timestamps-converter/static/css/main.d0b51b7a.css",
-    "main.js": "/timestamps-converter/static/js/main.ee8f54b1.js",
+    "main.js": "/timestamps-converter/static/js/main.a452ed2d.js",
     "static/js/453.49e3639a.chunk.js": "/timestamps-converter/static/js/453.49e3639a.chunk.js",
     "index.html": "/timestamps-converter/index.html",
     "main.d0b51b7a.css.map": "/timestamps-converter/static/css/main.d0b51b7a.css.map",
-    "main.ee8f54b1.js.map": "/timestamps-converter/static/js/main.ee8f54b1.js.map",
+    "main.a452ed2d.js.map": "/timestamps-converter/static/js/main.a452ed2d.js.map",
     "453.49e3639a.chunk.js.map": "/timestamps-converter/static/js/453.49e3639a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d0b51b7a.css",
-    "static/js/main.ee8f54b1.js"
+    "static/js/main.a452ed2d.js"
   ]
 }

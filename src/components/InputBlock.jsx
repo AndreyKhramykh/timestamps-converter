@@ -1,4 +1,11 @@
-import { getDate, getHours, getMinutes, getMonth, getSeconds, getYear } from 'date-fns';
+import {
+	getDate,
+	getHours,
+	getMinutes,
+	getMonth,
+	getSeconds,
+	getYear,
+} from 'date-fns'
 import { useEffect, useState } from 'react'
 
 import { LimitedInput } from './LimitedInput'
@@ -16,20 +23,20 @@ export function InputBlock({ onEnterKeyDown, onDateChange }) {
 
 	console.log(date)
 	function handleValueChange(data, key) {
-			date[key] = data
-			setDate({ ...date })
-			onDateChange(date, key)		
+		date[key] = data
+		setDate({ ...date })
+		onDateChange(date, key)
 	}
 
 	useEffect(() => {
 		onDateChange(date)
-		 // eslint-disable-next-line
+		// eslint-disable-next-line
 	}, [])
 
 	return (
-		<div>
+		<div className='input-block'>
 			<form action=''>
-				<label htmlFor=''>year</label>
+				<label htmlFor=''>Yr</label>
 				<LimitedInput
 					onValueChange={handleValueChange}
 					defaultValue={date.year}
@@ -39,7 +46,7 @@ export function InputBlock({ onEnterKeyDown, onDateChange }) {
 				/>
 			</form>
 			<form action=''>
-				<label htmlFor=''>month</label>
+				<label htmlFor=''>Mon</label>
 				<LimitedInput
 					onValueChange={handleValueChange}
 					defaultValue={date.month}
@@ -49,7 +56,7 @@ export function InputBlock({ onEnterKeyDown, onDateChange }) {
 				/>
 			</form>
 			<form action=''>
-				<label htmlFor=''>day</label>
+				<label htmlFor=''>Day</label>
 				<LimitedInput
 					onValueChange={handleValueChange}
 					defaultValue={date.day}
@@ -58,8 +65,8 @@ export function InputBlock({ onEnterKeyDown, onDateChange }) {
 					onEnterKeyDown={onEnterKeyDown}
 				/>
 			</form>
-			<form action=''>
-				<label htmlFor=''>hour</label>
+			<form style={{ marginLeft: '20px' }} action=''>
+				<label htmlFor=''>Hr</label>
 				<LimitedInput
 					onValueChange={handleValueChange}
 					defaultValue={date.hour}
@@ -69,7 +76,7 @@ export function InputBlock({ onEnterKeyDown, onDateChange }) {
 				/>
 			</form>
 			<form action=''>
-				<label htmlFor=''>minute</label>
+				<label htmlFor=''>Min</label>
 				<LimitedInput
 					onValueChange={handleValueChange}
 					defaultValue={date.minute}
@@ -79,7 +86,7 @@ export function InputBlock({ onEnterKeyDown, onDateChange }) {
 				/>
 			</form>
 			<form action=''>
-				<label htmlFor=''>second</label>
+				<label htmlFor=''>Sec</label>
 				<LimitedInput
 					onValueChange={handleValueChange}
 					defaultValue={date.second}

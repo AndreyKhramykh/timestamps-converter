@@ -108,7 +108,7 @@ function App() {
 			<InputBlock onEnterKeyDown={getResult} onDateChange={handleInputTwo} />
 			<button onClick={getResult}>Get result</button>
 			{!errorStatus.isError && <ResultBlock>{result}</ResultBlock>}
-			{errorStatus.isError && <p>{errorStatus.type}</p>}
+			{errorStatus.isError && <div className='error-block'>{errorStatus.type}</div>}
 		</div>
 	)
 }

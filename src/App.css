@@ -1,24 +1,63 @@
+* {
+	/* margin: 0; */
+	box-sizing: border-box;
+	font-size: 20px;
+}
+
 .app {
 	display: flex;
 	flex-direction: column;
-	gap: 40px
-	;
+	gap: 40px;
 }
 
 button {
 	width: fit-content;
+	padding: 20px;
+	cursor: pointer;
+	border-radius: 10px;
+	font-weight: bold;
+	font-size: larger;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
 }
-input[type="number"] {
-    -moz-appearance: textfield;
+input[type='number'] {
+	text-align: center;
+	box-shadow: 1px 1px 2px black;
+	border: none;
+	/* width: calc(2ch + 4px); */
+	-moz-appearance: textfield;
 }
 
-.border {
-	height: 10px;
-	background-color: green;
+form {
+	display: flex;
+	flex-direction: column;
+}
+label {
+	font-size: smaller;
+	font-weight: lighter;
+	/* text-align: center; */
+}
+
+.input-block {
+	display: flex;
+	flex-direction: row;
+	/* gap: 10px; */
+}
+
+.regular-input {
+	width: calc(2ch + 12px);
+
+}
+.year-input {
+	width: calc(4ch + 12px);
+}
+
+.error-block {
+	color: red;
+	background-color: rgba(255, 0, 0, 0.1);
+	padding: 20px;
 }

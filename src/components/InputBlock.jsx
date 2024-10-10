@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react'
 
 import { LimitedInput } from './LimitedInput'
 
-export function InputBlock({ onEnterKeyDown, onDateChange }) {
+export function InputBlock({ onEnterKeyDown, onDateChange, titleName }) {
 	const [date, setDate] = useState({
 		currentDate: new Date(),
 		year: getYear(new Date()),
@@ -21,7 +21,6 @@ export function InputBlock({ onEnterKeyDown, onDateChange }) {
 		second: getSeconds(new Date()),
 	})
 
-	console.log(date)
 	function handleValueChange(data, key) {
 		date[key] = data
 		setDate({ ...date })
@@ -34,7 +33,9 @@ export function InputBlock({ onEnterKeyDown, onDateChange }) {
 	}, [])
 
 	return (
-		<div className='input-block'>
+		<div className='input-container'>
+			<div>{titleName}</div>
+			<div className='input-block'>
 			<form action=''>
 				<label htmlFor=''>Yr</label>
 				<LimitedInput
@@ -95,6 +96,7 @@ export function InputBlock({ onEnterKeyDown, onDateChange }) {
 					onEnterKeyDown={onEnterKeyDown}
 				/>
 			</form>
+			</div>
 		</div>
 	)
 }

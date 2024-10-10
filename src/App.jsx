@@ -18,42 +18,41 @@ function App() {
 			if (elem?.month > 12) {
 				setErrorStatus({
 					isError: true,
-					type: 'Wrong month value',
+					type: 'Помилка! Невірно введений місяць.',
 				})
-				return 
+				return
 			}
 			if (elem?.day > 31) {
 				setErrorStatus({
 					isError: true,
-					type: 'Wrong day value',
+					type: 'Помилка! Невірно введений день.',
 				})
 				return
 			}
 			if (elem?.hour > 23) {
 				setErrorStatus({
 					isError: true,
-					type: 'Wrong hour value',
+					type: 'Помилка! Невірно введена година.',
 				})
 				return
 			}
 			if (elem?.minute > 59) {
 				setErrorStatus({
 					isError: true,
-					type: 'Wrong minute value',
+					type: 'Помилка! Невірно введена хвилина.',
 				})
 				return
 			}
 			if (elem?.second > 59) {
 				setErrorStatus({
 					isError: true,
-					type: 'Wrong second value',
+					type: 'Помилка! Невірно введена секунда.',
 				})
 				return
 			}
 		})
 	}
 
-	console.log('update 2')
 	function getResult() {
 		setErrorStatus({
 			isError: false,
@@ -84,7 +83,7 @@ function App() {
 		if ((inputTwo - inputOne) / 10000000 < 0) {
 			setErrorStatus({
 				isError: true,
-				type: 'Wrong length value',
+				type: `Помилка! Різниця таймстемпів не може мати від'ємне значення. Перевірте поля для вводу.`,
 			})
 		}
 
@@ -103,12 +102,22 @@ function App() {
 
 	return (
 		<div className='app'>
-			<h1>Конвертер таймстемпів в хронометраж в секундах</h1>
-			<InputBlock onEnterKeyDown={getResult} onDateChange={handleInputOne} />
-			<InputBlock onEnterKeyDown={getResult} onDateChange={handleInputTwo} />
-			<button onClick={getResult}>Get result</button>
+			<h1>Конвертер часу в таймстемпи і хронометраж в секундах</h1>
+			<InputBlock
+				titleName='Введіть час початку ассету:'
+				onEnterKeyDown={getResult}
+				onDateChange={handleInputOne}
+			/>
+			<InputBlock
+				titleName='Введіть час кінця ассету:'
+				onEnterKeyDown={getResult}
+				onDateChange={handleInputTwo}
+			/>
+			<button onClick={getResult}>Отримати результат</button>
 			{!errorStatus.isError && <ResultBlock>{result}</ResultBlock>}
-			{errorStatus.isError && <div className='error-block'>{errorStatus.type}</div>}
+			{errorStatus.isError && (
+				<div className='error-block'>{errorStatus.type}</div>
+			)}
 		</div>
 	)
 }

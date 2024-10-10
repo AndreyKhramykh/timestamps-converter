@@ -1,22 +1,35 @@
 * {
-	/* margin: 0; */
+	margin: 0;
 	box-sizing: border-box;
 	font-size: 20px;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	background-color: aliceblue;
+
+}
+h1 {
+	font-size: 24px;
 }
 
 .app {
 	display: flex;
 	flex-direction: column;
 	gap: 40px;
+	margin: 40px 40px;
 }
 
 button {
 	width: fit-content;
-	padding: 20px;
+	padding: 10px;
 	cursor: pointer;
 	border-radius: 10px;
 	font-weight: bold;
 	font-size: larger;
+	background-color: rgba(127, 255, 212, 0.2);
+	box-shadow: 2px 2px 4px black;
+}
+button:hover {
+	background-color: rgba(127, 255, 212, 0.4);
+	box-shadow: 1px 1px 2px rgb(0, 0, 0, 0.5);
 }
 
 input[type='number']::-webkit-inner-spin-button,
@@ -28,7 +41,6 @@ input[type='number'] {
 	text-align: center;
 	box-shadow: 1px 1px 2px black;
 	border: none;
-	/* width: calc(2ch + 4px); */
 	-moz-appearance: textfield;
 }
 
@@ -39,25 +51,33 @@ form {
 label {
 	font-size: smaller;
 	font-weight: lighter;
-	/* text-align: center; */
+}
+.input-container {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }
 
 .input-block {
 	display: flex;
 	flex-direction: row;
-	/* gap: 10px; */
 }
 
 .regular-input {
-	width: calc(2ch + 12px);
-
+	width: calc(2ch + 16px);
 }
 .year-input {
-	width: calc(4ch + 12px);
+	width: calc(4ch + 16px);
 }
 
 .error-block {
 	color: red;
 	background-color: rgba(255, 0, 0, 0.1);
 	padding: 20px;
+}
+
+.result-block {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }

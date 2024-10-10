@@ -2,10 +2,10 @@ export function ResultBlock(children) {
 	return (
 		<>
 			{children.children.startTimestamp && (
-				<div>
-					<div>Start Time: {children.children.startTimestamp}</div>
-					<div>End Time: {children.children.endTimestamp}</div>
-					<div>Length: {children.children.length}</div>
+				<div className='result-block'>
+					<div>Start Time: <strong>{children.children.startTimestamp}</strong></div>
+					<div>End Time: <strong>{children.children.endTimestamp}</strong></div>
+					<div>Length: <strong>{children.children.length}</strong></div>
 				</div>
 			)}
 		</>

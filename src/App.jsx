@@ -1,12 +1,38 @@
 import './App.css'
 
+import {
+	getDate,
+	getHours,
+	getMinutes,
+	getMonth,
+	getSeconds,
+	getYear,
+} from 'date-fns'
+
 import { InputBlock } from './components/InputBlock'
 import { ResultBlock } from './components/ResultBlock'
+import arrowsImage from './img/arrows.png'
 import { useState } from 'react'
 
 function App() {
-	const [inputOneDate, setInputOneDate] = useState()
-	const [inputTwoDate, setInputTwoDate] = useState()
+	const [inputOneDate, setInputOneDate] = useState({
+		currentDate: new Date(),
+		year: getYear(new Date()),
+		month: getMonth(new Date()) + 1,
+		day: getDate(new Date()),
+		hour: getHours(new Date()),
+		minute: getMinutes(new Date()),
+		second: getSeconds(new Date()),
+	})
+	const [inputTwoDate, setInputTwoDate] = useState({
+		currentDate: new Date(),
+		year: getYear(new Date()),
+		month: getMonth(new Date()) + 1,
+		day: getDate(new Date()),
+		hour: getHours(new Date()),
+		minute: getMinutes(new Date()),
+		second: getSeconds(new Date()),
+	})
 	const [result, setResult] = useState('')
 	const [errorStatus, setErrorStatus] = useState({
 		isError: false,
@@ -100,19 +126,33 @@ function App() {
 		setInputTwoDate(date)
 	}
 
+
+	function switchInputValue() {
+		setInputOneDate({ ...inputTwoDate })
+		setInputTwoDate({ ...inputOneDate })
+	}
+
 	return (
 		<div className='app'>
 			<h1>Конвертер часу в таймстемпи і хронометраж в секундах</h1>
-			<InputBlock
-				titleName='Введіть час початку ассету:'
-				onEnterKeyDown={getResult}
-				onDateChange={handleInputOne}
-			/>
-			<InputBlock
-				titleName='Введіть час кінця ассету:'
-				onEnterKeyDown={getResult}
-				onDateChange={handleInputTwo}
-			/>
+			<div className='grid-container'>
+				<InputBlock
+					titleName='Введіть час початку ассету:'
+					onEnterKeyDown={getResult}
+					onDateChange={handleInputOne}
+					defaultValue={inputOneDate}
+				/>
+				<InputBlock
+					titleName='Введіть час кінця ассету:'
+					onEnterKeyDown={getResult}
+					onDateChange={handleInputTwo}
+					defaultValue={inputTwoDate}
+				/>
+				<button className='switch-button' onClick={switchInputValue}>
+					Змінити значення місцями{' '}
+					<img className='img-arrows' src={arrowsImage} alt='arrows' />
+				</button>
+			</div>
 			<button onClick={getResult}>Отримати результат</button>
 			{!errorStatus.isError && <ResultBlock>{result}</ResultBlock>}
 			{errorStatus.isError && (

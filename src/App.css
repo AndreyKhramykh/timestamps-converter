@@ -3,11 +3,12 @@
 	box-sizing: border-box;
 	font-size: 20px;
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	background-color: aliceblue;
-
 }
 h1 {
 	font-size: 24px;
+}
+body {
+	background-color: aliceblue;
 }
 
 .app {
@@ -62,6 +63,10 @@ label {
 	display: flex;
 	flex-direction: row;
 }
+.input-block form div {
+	display: flex;
+	flex-direction: row;
+}
 
 .regular-input {
 	width: calc(2ch + 16px);
@@ -80,4 +85,34 @@ label {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
+}
+.img-arrows {
+	height: 16px;
+	width: 10px;
+}
+
+.switch-button {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 16px;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	grid-template-rows: 1fr;
+	grid-gap: 40px;
+}
+
+.grid-container button {
+	grid-area: 1 / 2 / 3 / 2;
+	align-self: center;
+}
+
+@media screen and (max-width: 500px) {
+	.switch-button {
+		font-size: 0px;
+		gap: 0px;
+	}
 }

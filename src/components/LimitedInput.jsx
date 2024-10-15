@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export function LimitedInput({
 	onEnterKeyDown,
@@ -8,6 +8,10 @@ export function LimitedInput({
 	specialKey,
 }) {
 	const [newValue, setNewValue] = useState(defaultValue)
+
+	useEffect(() => {
+		setNewValue(defaultValue)
+	}, [defaultValue])
 
 	function handleChange(e) {
 		let inputValue = e.target.value
@@ -45,8 +49,7 @@ export function LimitedInput({
 				onDoubleClick={handleFocus}
 			/>
 			{specialKey === 'year' || specialKey === 'month' ? '-' : null}
-			{specialKey === 'hour' || specialKey === 'minute' ? ':' : null }
-
+			{specialKey === 'hour' || specialKey === 'minute' ? ':' : null}
 		</div>
 	)
 }

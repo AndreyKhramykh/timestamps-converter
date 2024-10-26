@@ -11,7 +11,6 @@ export function InputBlock({
 	const [date, setDate] = useState({
 		...defaultValue,
 	})
-	console.log(titleName.split(' ')[2], defaultValue)
 
 	function handleValueChange(data, key) {
 		date[key] = data

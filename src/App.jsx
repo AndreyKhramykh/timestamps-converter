@@ -11,6 +11,7 @@ import {
 
 import { InputBlock } from './components/InputBlock'
 import { ResultBlock } from './components/ResultBlock'
+import { ToDateBlock } from './components/ToDateBlock'
 import arrowsImage from './img/arrows.png'
 import { useState } from 'react'
 
@@ -149,7 +150,7 @@ function App() {
 					defaultValue={inputTwoDate}
 				/>
 				<button className='switch-button' onClick={switchInputValue}>
-					Змінити значення місцями{' '}
+					Поміняти місцями{' '}
 					<img className='img-arrows' src={arrowsImage} alt='arrows' />
 				</button>
 			</div>
@@ -158,6 +159,10 @@ function App() {
 			{errorStatus.isError && (
 				<div className='error-block'>{errorStatus.type}</div>
 			)}
+			<hr />
+			<ToDateBlock>
+
+			</ToDateBlock>
 		</div>
 	)
 }
